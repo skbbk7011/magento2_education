@@ -42,7 +42,7 @@ return [
     'Magento_Swatches',
     'Magento_Tax',
     'Magento_TaxImportExport',
-    'Magento_Theme',
+    'theme-frontend-Education_theme',
     'Magento_Translation',
     'Magento_Ui',
     'Magento_User',

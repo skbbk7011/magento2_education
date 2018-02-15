@@ -33,7 +33,7 @@ class TemplateTest extends \PHPUnit\Framework\TestCase
      */
     public function testGetProcessedTemplateFrontend($store, $design)
     {
-        $this->_model->setTemplateText('{{view url="Magento_Theme::favicon.ico"}}');
+        $this->_model->setTemplateText('{{view url="theme-frontend-Education_theme::favicon.ico"}}');
         if ($store != 'default') {
             \Magento\TestFramework\Helper\Bootstrap::getObjectManager()->get(
                 \Magento\Framework\App\Config\MutableScopeConfigInterface::class
@@ -51,7 +51,7 @@ class TemplateTest extends \PHPUnit\Framework\TestCase
             'frontend',
             [$this->_model, 'getProcessedTemplate']
         );
-        $expectedTemplateText = "frontend/{$design}/en_US/Magento_Theme/favicon.ico";
+        $expectedTemplateText = "frontend/{$design}/en_US/theme-frontend-Education_theme/favicon.ico";
         $this->assertStringEndsWith($expectedTemplateText, $processedTemplate);
         $this->_model->revertDesign();
     }
@@ -76,7 +76,7 @@ class TemplateTest extends \PHPUnit\Framework\TestCase
      */
     public function testGetProcessedTemplateArea($area, $design)
     {
-        $this->_model->setTemplateText('{{view url="Magento_Theme::favicon.ico"}}');
+        $this->_model->setTemplateText('{{view url="theme-frontend-Education_theme::favicon.ico"}}');
         $this->_model->emulateDesign('default', $area);
         $processedTemplate = \Magento\TestFramework\Helper\Bootstrap::getObjectManager()->get(
             \Magento\Framework\App\State::class
@@ -84,7 +84,7 @@ class TemplateTest extends \PHPUnit\Framework\TestCase
             $area,
             [$this->_model, 'getProcessedTemplate']
         );
-        $expectedTemplateText = "{$area}/{$design}/en_US/Magento_Theme/favicon.ico";
+        $expectedTemplateText = "{$area}/{$design}/en_US/theme-frontend-Education_theme/favicon.ico";
         $this->assertStringEndsWith($expectedTemplateText, $processedTemplate);
     }
 
