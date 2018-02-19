@@ -253,7 +253,7 @@ class CreateCaseBuilderTest extends \PHPUnit\Framework\TestCase
     private function getSellerData()
     {
         return [
-            'name' => 'Sample Store',
+            'name' => 'Sample-module Store',
             'domain' => 'm2.com',
             'shipFromAddress' => [
                 'streetAddress' => '6161 West Centinela Avenue',

@@ -14,7 +14,7 @@ use Magento\Mtf\Constraint\AbstractAssertForm;
 /**
  * Class AssertDownloadableSamplesData
  *
- * Assert that Sample block for downloadable product on front-end
+ * Assert that Sample-module block for downloadable product on front-end
  */
 class AssertDownloadableSamplesData extends AbstractAssertForm
 {
@@ -38,7 +38,7 @@ class AssertDownloadableSamplesData extends AbstractAssertForm
     ];
 
     /**
-     * Assert Sample block for downloadable product on front-end
+     * Assert Sample-module block for downloadable product on front-end
      *
      * @param CatalogProductView $productView
      * @param DownloadableProduct $product
@@ -104,6 +104,6 @@ class AssertDownloadableSamplesData extends AbstractAssertForm
      */
     public function toString()
     {
-        return 'Sample block for downloadable product on front-end is visible.';
+        return 'Sample-module block for downloadable product on front-end is visible.';
     }
 }

@@ -34,7 +34,7 @@ class InstallCommand extends AbstractSetupCommand
     const INPUT_KEY_SALES_ORDER_INCREMENT_PREFIX = 'sales-order-increment-prefix';
 
     /**
-     * Parameter indicating command whether to install Sample Data
+     * Parameter indicating command whether to install Sample-module Data
      */
     const INPUT_KEY_USE_SAMPLE_DATA = 'use-sample-data';
 

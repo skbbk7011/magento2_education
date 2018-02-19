@@ -193,7 +193,7 @@ class ModuleTest extends \PHPUnit\Framework\TestCase
                 'name' => Module::UNKNOWN_PACKAGE_NAME,
                 'type' => 'magento2-module',
                 'version' => Module::UNKNOWN_VERSION,
-                'vendor' => 'Sample',
+                'vendor' => 'Sample-module',
                 'moduleName' => 'Sample_ModuleTwo',
                 'enable' => true,
                 'package_title' => 'packageTitle',

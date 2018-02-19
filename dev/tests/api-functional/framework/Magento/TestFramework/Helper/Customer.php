@@ -32,7 +32,7 @@ class Customer extends WebapiAbstract
     const TAXVAT = '12';
     const WEBSITE_ID = 1;
 
-    /** Sample values for testing */
+    /** Sample-module values for testing */
     const FIRSTNAME = 'Jane';
     const LASTNAME = 'Doe';
     const PASSWORD = 'test@123';

@@ -27,7 +27,7 @@ class AccountManagementCustomAttributesTest extends WebapiAbstract
     const RESOURCE_PATH = '/V1/customers';
 
     /**
-     * Sample values for testing
+     * Sample-module values for testing
      */
     const ATTRIBUTE_CODE = 'attribute_code';
     const ATTRIBUTE_VALUE = 'attribute_value';

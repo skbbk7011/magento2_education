@@ -353,7 +353,7 @@ class Installer
             throw new \LogicException('Installation progress did not finish properly.');
         }
         if ($this->sampleDataState->hasError()) {
-            $this->log->log('Sample Data is installed with errors. See log file for details');
+            $this->log->log('Sample-module Data is installed with errors. See log file for details');
         }
     }
 

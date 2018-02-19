@@ -31,7 +31,7 @@ class AccountManagementTest extends WebapiAbstract
     const RESOURCE_PATH = '/V1/customers';
 
     /**
-     * Sample values for testing
+     * Sample-module values for testing
      */
     const ATTRIBUTE_CODE = 'attribute_code';
     const ATTRIBUTE_VALUE = 'attribute_value';
@@ -652,7 +652,7 @@ class AccountManagementTest extends WebapiAbstract
      */
     public function testCustomAttributes()
     {
-        //Sample customer data comes with the disable_auto_group_change custom attribute
+        //Sample-module customer data comes with the disable_auto_group_change custom attribute
         $customerData = $this->customerHelper->createSampleCustomerDataObject();
         //address attribute code from fixture
         $fixtureAddressAttributeCode = 'address_user_attribute';

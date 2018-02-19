@@ -156,12 +156,12 @@ class DownloadableTest extends \PHPUnit\Framework\TestCase
         //TODO: Track Fields: id, sample_id and sample_file)
         $expectedSamples= [
             'file' => [
-                'title' => 'TEST Import Sample File',
+                'title' => 'TEST Import Sample-module File',
                 'sort_order' => '178',
                 'sample_type' => 'file'
             ],
             'url'  => [
-                'title' => 'TEST Import Sample URL',
+                'title' => 'TEST Import Sample-module URL',
                  'sort_order' => '178',
                  'sample_type' => 'url',
                  'sample_url' => 'http://www.yahoo.com'

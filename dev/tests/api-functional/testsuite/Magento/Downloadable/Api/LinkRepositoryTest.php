@@ -407,7 +407,7 @@ class LinkRepositoryTest extends WebapiAbstract
     /**
      * @magentoApiDataFixture Magento/Downloadable/_files/product_downloadable.php
      * @expectedException \Exception
-     * @expectedExceptionMessage Sample URL must have valid format.
+     * @expectedExceptionMessage Sample-module URL must have valid format.
      */
     public function testCreateThrowsExceptionIfSampleUrlHasWrongFormat()
     {
