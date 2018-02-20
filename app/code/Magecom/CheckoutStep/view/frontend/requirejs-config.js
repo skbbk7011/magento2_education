@@ -1,13 +1,12 @@
 var config = {
-    'config': {
-        'mixins': {
-            'Magento_Checkout/js/view/shipping': {
-                'Vendor_Module/js/view/shipping-payment-mixin': true
-            },
-            'Magento_Checkout/js/view/payment': {
-                'Vendor_Module/js/view/shipping-payment-mixin': true
+        'config': {
+            'mixins': {
+                'Magento_Checkout/js/view/shipping': {
+                    'Magecom_CheckoutStep/js/view/shipping-payment-mixin': true
+                },
+                'Magento_Checkout/js/view/payment': {
+                    'Magecom_CheckoutStep/js/view/shipping-payment-mixin': true
+                }
             }
         }
-    }
-
-
+        }

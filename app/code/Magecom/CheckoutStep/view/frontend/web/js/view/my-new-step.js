@@ -14,8 +14,8 @@ define(
         'use strict';
         /**
          *
-         * newcheckout - is the name of the component's .html template,
-         * MD_Newcheckoutstep  - is the name of the your module directory.
+         * mystep - is the name of the component's .html template,
+         * <Vendor>_<Module>  - is the name of the your module directory.
          *
          */
         return Component.extend({
@@ -24,9 +24,7 @@ define(
             },
 
             //add here your logic to display step,
-            // I have given false here so that is will no merge with other step
-            // if you make it true sometime happens that is merge with shipping step.
-            visible: ko.observable(quote.isVirtual()),
+            isVisible: ko.observable(true),
 
             /**
              *
@@ -37,11 +35,11 @@ define(
                 // register your step
                 stepNavigator.registerStep(
                     //step code will be used as step content id in the component template
-                    'newcheckoutstep',
+                    'step_age',
                     //step alias
                     null,
                     //step title value
-                    'New Checkout Step',
+                    'Step Age',
                     //observable property with logic when display step or hide step
                     this.isVisible,
 
@@ -65,7 +63,7 @@ define(
              * for switching to your custom step
              */
             navigate: function () {
-                self.visible(true);
+
             },
 
             /**
