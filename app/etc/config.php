@@ -4,6 +4,7 @@ return array (
   array (
     'Magento_Store' => 1,
     'Magento_Directory' => 1,
+    'Magecom_Helloworld' => 1,
     'Magento_Backend' => 1,
     'Magento_AdvancedPricingImportExport' => 1,
     'Magento_Config' => 1,
@@ -49,7 +50,7 @@ return array (
     'Magento_Deploy' => 1,
     'Magento_Developer' => 1,
     'Magento_Dhl' => 1,
-    'Magecom_Checkout' => 1,
+    'Magecom_CheckoutStep' => 1,
     'Magento_Tax' => 1,
     'Magento_ImportExport' => 1,
     'Magento_Weee' => 1,
