@@ -2,6 +2,6 @@
 
 \Magento\Framework\Component\ComponentRegistrar::register(
   \Magento\Framework\Component\ComponentRegistrar::MODULE,
-  'CheckoutStep',
+  'Magecom_CheckoutStep',
   __DIR__
 );
