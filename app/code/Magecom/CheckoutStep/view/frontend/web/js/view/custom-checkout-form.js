@@ -108,6 +108,7 @@ define(
             /**
              * @returns void
              */
+
             navigateToNextStep: function () {
                 stepNavigator.next();
             }
@@ -137,6 +138,7 @@ define(
                     console.dir(formData);
                 }
             }
-        });
+        })
+
     }
 );
