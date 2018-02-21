@@ -7,9 +7,17 @@
          data-role="content">
 
         <form data-bind="submit: navigateToNextStep" novalidate="novalidate">
+
+            <!--<fieldset class="fieldset">
+                <legend data-bind="i18n: 'Custom Checkout Form'"></legend>
+                &lt;!&ndash; ko foreach: getRegion('custom-checkout-form-fields') &ndash;&gt;
+                &lt;!&ndash; ko template: getTemplate() &ndash;&gt;&lt;!&ndash; /ko &ndash;&gt;
+                &lt;!&ndash;/ko&ndash;&gt;
+            </fieldset>-->
+
             <div class="actions-toolbar">
                 <div class="primary">
-                    <button data-role="opc-continue" type="submit" class="button action continue primary">
+                    <button  data-role="opc-continue" type="submit" class="button action continue primary">
                         <span><!-- ko i18n: 'Next'--><!-- /ko --></span>
                     </button>
                 </div>
@@ -17,3 +25,5 @@
         </form>
     </div>
 </li>
+
+<!--data-bind="click: onSubmit"-->
