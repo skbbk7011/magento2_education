@@ -4,13 +4,14 @@
       novalidate="novalidate">
     <fieldset class="fieldset">
         <legend data-bind="i18n: 'Custom Checkout Form'"></legend>
+        <br/>
         <!-- ko foreach: getRegion('custom-checkout-form-fields') -->
         <!-- ko template: getTemplate() --><!-- /ko -->
         <!--/ko-->
     </fieldset>
     <div class="actions-toolbar">
         <div class="primary">
-            <button type="submit" data-bind="click:onSubmit" data-role="opc-continue"  class="button action continue primar"><!-- data-bind="onSubmit"-->
+            <button type="submit"  data-role="opc-continue"  class="button action continue primar"><!-- data-bind="onSubmit"-->
                 <span><!-- ko i18n: 'Next'--><!-- /ko --></span>
             </button>
         </div>
