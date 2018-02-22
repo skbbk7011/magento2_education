@@ -77,7 +77,7 @@ define(
                     //step alias
                     null,
                     //step title value
-                    'Step Age',
+                    'Identification Age',
                     //observable property with logic when display step or hide step
                     this.isVisible,
 
@@ -137,6 +137,7 @@ define(
                     // do something with form data
                     console.dir(formData);
                 }
+                Component.stepNavigator.next();
             }
         })
 
