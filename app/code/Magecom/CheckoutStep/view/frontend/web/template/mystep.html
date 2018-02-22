@@ -4,7 +4,7 @@
          class="step-content"
          data-role="content">
 
-        <form  class="form"
+        <!--<form  class="form"
                data-bind="submit: navigateToNextStep"
                novalidate="novalidate">
 
@@ -12,10 +12,30 @@
             <div class="actions-toolbar">
                 <div class="primary">
                     <button data-role="opc-continue" type="submit" class="button action continue primary">
+                        <span>&lt;!&ndash; ko i18n: 'Next'&ndash;&gt;&lt;!&ndash; /ko &ndash;&gt;</span>
+                    </button>
+                </div>
+            </div>
+        </form>-->
+
+        <form id="custom-checkout-form"
+              class="form"
+              data-bind="attr: {'data-hasrequired': $t('* Required Fields')}, 'submit': navigateToNextStep"
+              novalidate="novalidate">
+            <fieldset class="fieldset">
+                <legend data-bind="i18n: 'Custom Checkout Form'"></legend>
+                <!-- ko foreach: getRegion('custom-checkout-form-fields') -->
+                <!-- ko template: getTemplate() --><!-- /ko -->
+                <!--/ko-->
+            </fieldset>
+            <div class="actions-toolbar">
+                <div class="primary">
+                    <button type="submit" data-bind="click:onSubmit" data-role="opc-continue"  class="button action continue primar"><!-- data-bind="onSubmit"-->
                         <span><!-- ko i18n: 'Next'--><!-- /ko --></span>
                     </button>
                 </div>
             </div>
         </form>
+
     </div>
 </li>

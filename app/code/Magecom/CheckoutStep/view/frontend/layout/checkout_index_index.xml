@@ -25,7 +25,7 @@
                                                     <item name="provider" xsi:type="string">checkoutProvider</item>
                                                     <item name="config" xsi:type="array">
                                                         <!--links to our html file in step 2-->
-                                                        <item name="template" xsi:type="string">Magecom_CheckoutStep/custom-checkout-form</item>
+                                                        <item name="template" xsi:type="string">Magecom_CheckoutStep/mystep</item>
                                                     </item>
                                                     <!-- new element -->
                                                     <item name="children" xsi:type="array">
