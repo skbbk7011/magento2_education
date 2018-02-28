@@ -1,3 +1,8 @@
+        <!--* Step age
+        *
+        * Create new checkout step.
+        * ...-->
+
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceBlock name="checkout.root">
@@ -11,34 +16,24 @@
                                         <!-- The new step you add -->
                                         <item name="my-new-step" xsi:type="array">
                                             <item name="component" xsi:type="string">uiComponent</item>
-
-                                            <!--To display step content before shipping step "sortOrder" value should be < 1-->
-                                            <!--To display step content between shipping step and payment step  1 < "sortOrder" < 2 -->
-                                            <!--To display step content after payment step "sortOrder" > 2 -->
                                             <item name="sortOrder" xsi:type="string">0</item>
                                             <item name="children" xsi:type="array">
                                                 <!--add here child component declaration for your step-->
                                                 <item name="component" xsi:type="string">Magecom_CheckoutStep/js/view/my-new-step</item>
                                                 <item name="custom-checkout-form-container" xsi:type="array">
-                                                    <!--links to our js file in step 1-->
-                                                    <item name="component" xsi:type="string">Magecom_CheckoutStep/js/view/custom-checkout-form</item>
+                                                    <item name="component" xsi:type="string">Magecom_CheckoutStep/js/view/my-new-step</item><!--custom-checkout-form-->
                                                     <item name="provider" xsi:type="string">checkoutProvider</item>
                                                     <item name="config" xsi:type="array">
-                                                        <!--links to our html file in step 2-->
                                                         <item name="template" xsi:type="string">Magecom_CheckoutStep/mystep</item>
                                                     </item>
-                                                    <!-- new element -->
                                                     <item name="children" xsi:type="array">
                                                         <item name="custom-checkout-form-fieldset" xsi:type="array">
-                                                            <!-- uiComponent is used as a wrapper for form fields (its template will render all children as a list) -->
                                                             <item name="component" xsi:type="string">uiComponent</item>
-                                                            <!-- the following display area is used in template (see below) -->
                                                             <item name="displayArea" xsi:type="string">custom-checkout-form-fields</item>
                                                             <item name="children" xsi:type="array">
                                                                 <item name="name" xsi:type="array">
                                                                     <item name="component" xsi:type="string">Magento_Ui/js/form/element/abstract</item>
                                                                     <item name="config" xsi:type="array">
-                                                                        <!-- customScope is used to group elements within a single form (e.g. they can be validated separately) -->
                                                                         <item name="customScope" xsi:type="string">customCheckoutForm</item>
                                                                         <item name="template" xsi:type="string">ui/form/field</item>
                                                                         <item name="elementTmpl" xsi:type="string">ui/form/element/input</item>
@@ -54,7 +49,6 @@
                                                                 <item name="phone" xsi:type="array">
                                                                     <item name="component" xsi:type="string">Magento_Ui/js/form/element/abstract</item>
                                                                     <item name="config" xsi:type="array">
-                                                                        <!-- customScope is used to group elements within a single form (e.g. they can be validated separately) -->
                                                                         <item name="customScope" xsi:type="string">customCheckoutForm</item>
                                                                         <item name="template" xsi:type="string">ui/form/field</item>
                                                                         <item name="elementTmpl" xsi:type="string">ui/form/element/input</item>
@@ -67,11 +61,9 @@
                                                                         <item name="required-entry" xsi:type="string">true</item>
                                                                     </item>
                                                                 </item>
-
                                                                 <item name="ageuser" xsi:type="array">
                                                                     <item name="component" xsi:type="string">Magento_Ui/js/form/element/select</item>
                                                                     <item name="config" xsi:type="array">
-                                                                        <!--customScope is used to group elements within a single form (e.g. they can be validated separately)-->
                                                                         <item name="customScope" xsi:type="string">customCheckoutForm</item>
                                                                         <item name="template" xsi:type="string">ui/form/field</item>
                                                                         <item name="elementTmpl" xsi:type="string">ui/form/element/select</item>
@@ -81,21 +73,15 @@
                                                                             <item name="label" xsi:type="string">Please select age</item>
                                                                             <item name="value" xsi:type="string"></item>
                                                                         </item>
-
-
                                                                         <item name="1" xsi:type="array">
                                                                             <item name="label" xsi:type="string">Value 1</item>
                                                                             <item name="value" xsi:type="string">value_1</item>
                                                                         </item>
-
                                                                         <item name="2" xsi:type="array">
                                                                             <item name="label" xsi:type="string">Value 2</item>
                                                                             <item name="value" xsi:type="string">value_2</item>
                                                                         </item>
-
-
                                                                     </item>
-                                                                    <!-- value element allows to specify default value of the form field -->
                                                                     <item name="value" xsi:type="string">value_2</item>
                                                                     <item name="provider" xsi:type="string">checkoutProvider</item>
                                                                     <item name="dataScope" xsi:type="string">customCheckoutForm.ageu</item>
@@ -106,19 +92,12 @@
                                                         </item>
                                                     </item>
                                                 </item>
-
                                             </item>
-
-
                                         </item>
-
-
                                     </item>
                                 </item>
                             </item>
-
                         </item>
-
                     </item>
                 </argument>
             </arguments>

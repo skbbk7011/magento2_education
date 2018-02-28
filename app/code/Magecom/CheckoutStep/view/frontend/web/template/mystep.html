@@ -1,41 +1,42 @@
 <li id="step_age" data-bind="fadeVisible: isVisible">
-<div class="step-title" data-bind="i18n: 'Step Title'" data-role="title"></div>
+    <div class="step-title" data-bind="i18n: 'Step Title'" data-role="title"></div>
     <div id="checkout-step-title"
-         class="step-content"
-         data-role="content">
-
-        <!--<form  class="form"
-               data-bind="submit: navigateToNextStep"
-               novalidate="novalidate">
-
-
-            <div class="actions-toolbar">
-                <div class="primary">
-                    <button data-role="opc-continue" type="submit" class="button action continue primary">
-                        <span>&lt;!&ndash; ko i18n: 'Next'&ndash;&gt;&lt;!&ndash; /ko &ndash;&gt;</span>
-                    </button>
-                </div>
-            </div>
-        </form>-->
-
+        class="step-content"
+        data-role="content">
         <form id="custom-checkout-form"
-              class="form"
-              data-bind="attr: {'data-hasrequired': $t('* Required Fields')}, 'submit': navigateToNextStep"
-              novalidate="novalidate">
+            class="form"
+            data-bind=" attr: {'data-hasrequired': $t('* Required Fields')},
+                                validationKey: false,
+                                submit: navigateToNextStep"
+            novalidate="novalidate">
             <fieldset class="fieldset">
                 <legend data-bind="i18n: 'Custom Checkout Form'"></legend>
                 <!-- ko foreach: getRegion('custom-checkout-form-fields') -->
                 <!-- ko template: getTemplate() --><!-- /ko -->
                 <!--/ko-->
+
+                <!--<label data-bind="i18n: 'Name'"></label>
+                <input class="input-text required" type="text" data-bind="value:customerFirstName"/>
+
+                <label data-bind="i18n: 'Phone'"></label>
+                <input class="input-text required" type="text"  data-bind="value:customerPhone" />
+
+                <label data-bind="i18n: 'Age'"></label>
+                <select data-bind="value:customerYear, options: customerDataYear, optionsCaption: 'Choose one...'">
+                    <option data-bind="$data"></option>
+                </select>-->
+
+                <p data-bind="text:fullName"></p>
+
             </fieldset>
             <div class="actions-toolbar">
                 <div class="primary">
-                    <button type="submit"  data-role="opc-continue"  class="button action continue primary"><!-- data-bind="onSubmit"-->
+                    <button type="submit" data-role="opc-continue" class="button action continue primary">
                         <span data-bind="i18n: 'Next'"><!-- ko i18n: 'Next'--><!-- /ko --></span>
                     </button>
+
                 </div>
             </div>
         </form>
-
     </div>
 </li>
