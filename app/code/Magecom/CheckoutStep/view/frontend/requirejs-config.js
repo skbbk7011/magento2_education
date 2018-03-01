@@ -8,5 +8,13 @@ var config = {
                 'Magecom_CheckoutStep/js/view/shipping-payment-mixin': true
             }
         }
+    },
+    map: {
+        "*": {
+            /* ... */
+            "dropdownDialog":         "mage/dropdown",
+            /* ... */
+        }
     }
+
 }
