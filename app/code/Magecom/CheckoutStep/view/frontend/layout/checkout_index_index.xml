@@ -44,6 +44,7 @@
                                                                     <item name="sortOrder" xsi:type="string">1</item>
                                                                     <item name="validation" xsi:type="array">
                                                                         <item name="required-entry" xsi:type="string">true</item>
+                                                                        <!--<item name="component" xsi:type="string">Magecom_CheckoutStep/js/view/customer-age-form-validator</item>-->
                                                                     </item>
                                                                 </item>
                                                                 <item name="phone" xsi:type="array">
@@ -74,19 +75,24 @@
                                                                             <item name="value" xsi:type="string"></item>
                                                                         </item>
                                                                         <item name="1" xsi:type="array">
-                                                                            <item name="label" xsi:type="string">Value 1</item>
-                                                                            <item name="value" xsi:type="string">value_1</item>
+                                                                            <item name="label" xsi:type="string">1999</item>
+                                                                            <item name="value" xsi:type="string">1999</item>
                                                                         </item>
                                                                         <item name="2" xsi:type="array">
-                                                                            <item name="label" xsi:type="string">Value 2</item>
-                                                                            <item name="value" xsi:type="string">value_2</item>
+                                                                            <item name="label" xsi:type="string">2000</item>
+                                                                            <item name="value" xsi:type="string">2000</item>
+                                                                        </item>
+                                                                        <item name="3" xsi:type="array">
+                                                                            <item name="label" xsi:type="string">2001</item>
+                                                                            <item name="value" xsi:type="string">2001</item>
                                                                         </item>
                                                                     </item>
-                                                                    <item name="value" xsi:type="string">value_2</item>
+                                                                    <item name="value" xsi:type="string"></item>
                                                                     <item name="provider" xsi:type="string">checkoutProvider</item>
                                                                     <item name="dataScope" xsi:type="string">customCheckoutForm.ageu</item>
                                                                     <item name="label" xsi:type="string">Select Field</item>
                                                                     <item name="sortOrder" xsi:type="string">3</item>
+
                                                                 </item>
                                                             </item>
                                                         </item>

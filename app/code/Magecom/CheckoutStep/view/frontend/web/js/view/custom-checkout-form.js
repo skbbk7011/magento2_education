@@ -80,7 +80,6 @@ define(
         return Component.extend({
 
             isVisible: ko.observable(quote.isVirtual()),
-            inputName: ko.observable(true),
 
             initialize: function () {
                 this._super();
@@ -99,9 +98,6 @@ define(
             onSubmit: function() {
                 // trigger form validation
                 this.source.set('params.invalid', false);
-                console.log(inputName);
-
-
 
                 this.source.trigger('customCheckoutForm.data.validate');
 
