@@ -5,12 +5,15 @@
 define(
     [
         'ko',
+        'jquery',
         'uiComponent',
         'underscore',
-        'Magento_Checkout/js/model/step-navigator'
+        'Magento_Checkout/js/model/step-navigator',
+        'mage/validation/validation'
     ],
     function (
         ko,
+        $,
         Component,
         _,
         stepNavigator
@@ -30,8 +33,7 @@ define(
              */
             initialize: function () {
                 this._super();
-
-                /*this.customerFirstName = ko.observable();
+                this.customerFirstName = ko.observable();
                 this.customerPhone = ko.observable();
                 this.customerDataYear = ["1999","2000","2001"];
                 this.customerYear = ko.observable();
@@ -45,7 +47,8 @@ define(
                     if(self.customerFirstName() != "" && self.customerPhone() != ""){
                         return true;
                     }
-                };*/
+                };
+
 
 
 
@@ -67,14 +70,9 @@ define(
             },
 
             navigateToNextStep: function () {
+                // trigger form validation
+                /*debugger*/
                 stepNavigator.next();
-                /*console.log(this.customerPhone());
-                if (this.validationKey() == true){
-                    stepNavigator.next();
-                    console.log('no disabled');
-                } else {
-                    console.log('disabled');
-                }*/
             }
         });
         /*return ComponentForm.extend({

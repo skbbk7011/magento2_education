@@ -27,6 +27,7 @@
                                                         <item name="template" xsi:type="string">Magecom_CheckoutStep/mystep</item>
                                                     </item>
                                                     <item name="children" xsi:type="array">
+                                                        <!--
                                                         <item name="custom-checkout-form-fieldset" xsi:type="array">
                                                             <item name="component" xsi:type="string">uiComponent</item>
                                                             <item name="displayArea" xsi:type="string">custom-checkout-form-fields</item>
@@ -44,7 +45,7 @@
                                                                     <item name="sortOrder" xsi:type="string">1</item>
                                                                     <item name="validation" xsi:type="array">
                                                                         <item name="required-entry" xsi:type="string">true</item>
-                                                                        <!--<item name="component" xsi:type="string">Magecom_CheckoutStep/js/view/customer-age-form-validator</item>-->
+                                                                        &lt;!&ndash;<item name="component" xsi:type="string">Magecom_CheckoutStep/js/view/customer-age-form-validator</item>&ndash;&gt;
                                                                     </item>
                                                                 </item>
                                                                 <item name="phone" xsi:type="array">
@@ -96,6 +97,7 @@
                                                                 </item>
                                                             </item>
                                                         </item>
+                                                        -->
                                                     </item>
                                                 </item>
                                             </item>
