@@ -14,26 +14,23 @@
                 <!-- ko foreach: getRegion('custom-checkout-form-fields') -->
                 <!-- ko template: getTemplate() --><!-- /ko -->
                 <!--/ko-->
-
                 <!--my example html for js-->
                 <label data-bind="i18n: 'Name'"></label>
-                <input class="input-text required" type="text" data-bind="value:customerFirstName"/>
-
+                <input class="input-text required name" aria-required="true" type="text" data-bind="value:customerFirstName" data-validate="{'required-entry':true}" />
                 <label data-bind="i18n: 'Phone'"></label>
-                <input class="input-text required" type="text"  data-bind="value:customerPhone" />
-
+                <input class="input-text required validate-emails" aria-required="true" type="text" data-bind="value:customerPhone" data-validate="{'required-entry':true}" />
                 <label data-bind="i18n: 'Age'"></label>
-                <select data-bind="value:customerYear, options: customerDataYear, optionsCaption: 'Choose one...'">
+                <select class="age-validation" data-bind="value:customerYear, options: customerDataYear, optionsCaption: 'Choose one...'" data-validate="{'required-entry':true}">
                     <option data-bind="$data"></option>
                 </select>
-
             </fieldset>
+            <legend data-bind="i18n: 'values form'"></legend>
+            <p data-bind="text:values"></p>
             <div class="actions-toolbar">
                 <div class="primary">
                     <button type="submit" data-role="opc-continue" class="button action continue primary">
                         <span data-bind="i18n: 'Next'"><!-- ko i18n: 'Next'--><!-- /ko --></span>
                     </button>
-
                 </div>
             </div>
         </form>

@@ -9,14 +9,17 @@ define(
         'uiComponent',
         'underscore',
         'Magento_Checkout/js/model/step-navigator',
-        'mage/validation/validation'
+        'Magento_Checkout/js/model/quote',
+        'mage/validation'
     ],
     function (
         ko,
         $,
         Component,
         _,
-        stepNavigator
+        stepNavigator,
+        quote,
+        mageValidation
     ) {
         'use strict';
         return Component.extend({
@@ -33,12 +36,14 @@ define(
              */
             initialize: function () {
                 this._super();
+
+
                 this.customerFirstName = ko.observable();
                 this.customerPhone = ko.observable();
                 this.customerDataYear = ["1999","2000","2001"];
                 this.customerYear = ko.observable();
                 this.validationKey = ko.observableArray();
-                this.fullName = ko.computed(function(){
+                this.values = ko.computed(function(){
                     return this.customerFirstName() + " " + this.customerPhone();
                 }, this);
 
@@ -48,6 +53,7 @@ define(
                         return true;
                     }
                 };
+
 
 
 
@@ -69,10 +75,47 @@ define(
 
             },
 
+
+            /*validateFormMy: function () {
+                var VAL = this.customerFirstName();
+
+                    VAL.match(/^[A-Z\s-.]+$/) ? (
+                        console.log(this.customerFirstName() + ' validate')
+                    ) : (
+                        console.log(this.customerFirstName() + ' no')
+                    );
+
+
+                    console.log(VAL);
+
+                    return console.log(VAL);
+            },*/
+
+            /* Validation Form*/
+            validateForm: function (form) {
+                $(form).validation() && $(form).validation('isValid');
+                return ;
+
+            },
+
+
             navigateToNextStep: function () {
                 // trigger form validation
                 /*debugger*/
-                stepNavigator.next();
+
+                if (!this.validateForm('#custom-checkout-form')) {
+                     /*this.validateFormMy();*/
+                        return stepNavigator.next();
+                }
+
+
+
+                /*if (validateForm()){
+                    stepNavigator.next();
+                } else {
+                    alert('warning');
+                }*/
+
             }
         });
         /*return ComponentForm.extend({
