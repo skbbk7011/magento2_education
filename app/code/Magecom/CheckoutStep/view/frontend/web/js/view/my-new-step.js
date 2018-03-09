@@ -10,7 +10,8 @@ define(
         'underscore',
         'Magento_Checkout/js/model/step-navigator',
         'Magento_Checkout/js/model/quote',
-        'mage/validation'
+        'mage/validation',
+        'mage/translate' // Magento text translate (Validation message translte as per language)
     ],
     function (
         ko,
@@ -37,7 +38,6 @@ define(
             initialize: function () {
                 this._super();
 
-
                 this.customerFirstName = ko.observable();
                 this.customerPhone = ko.observable();
                 this.customerDataYear = ["1999","2000","2001"];
@@ -53,11 +53,6 @@ define(
                         return true;
                     }
                 };
-
-
-
-
-
 
                 stepNavigator.registerStep(
                     'step_age',
@@ -91,10 +86,65 @@ define(
                     return console.log(VAL);
             },*/
 
+
+
             /* Validation Form*/
-            validateForm: function (form) {
-                $(form).validation() && $(form).validation('isValid');
-                return ;
+            validateForm: function (formElem) {
+                /*$(form).validation() && $(form).validation('isValid');
+               return ;*/
+                _.filter(
+                    $(formElem),
+                    function(formElem){
+                        var dataValid = formElem.getAttribute('data-valid');
+                        valid(dataValid, formElem);
+
+                       // return $(formElem);
+                    });
+
+                function valid (dataValid, formElem){
+                    switch (dataValid) {
+                        case 'name':
+                            var valInput = $(formElem).val();
+                            var errorMessage = 'Invalid name';
+                            if (!(valInput.replace(/^[A-Z\s-.]+$/))){
+                                $(formElem).after('<span class="error">' + errorMessage + '</span>');
+                            } else {
+                                $(formElem).next().remove();
+                            }
+                            break;
+                        case 'phone':
+                            var valInput = $(formElem).val();
+                            var errorMessage = 'Invalid phone number';
+                            if (!(valInput.replace(/^((8|\+7|\+3)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/))){
+                                $(formElem).after('<span class="error">' + errorMessage + '</span>');
+                            } else {
+                                $(formElem).next().remove();
+                            }
+                            break;
+                        case 'age':
+                            var myDate = new Date();
+                            var year = myDate.getFullYear();
+                            var selectVal = $(formElem).val();
+                            var ageUser = function () {
+                                if(selectVal == ""){
+                                    return 0;
+                                } else {
+                                    return year-selectVal;
+                                }
+                            };
+                            var errorMessage = '< 18 years';
+
+
+                            if(ageUser < 18){
+                                $(formElem).after('<span class="error">' + errorMessage + '</span>');
+                            }else{
+                                $(formElem).next().remove();
+                            }
+                            break;
+                        default:
+                            console.log( 'hasnt regular rule' );
+                    }
+                }
 
             },
 
@@ -103,46 +153,16 @@ define(
                 // trigger form validation
                 /*debugger*/
 
-                if (!this.validateForm('#custom-checkout-form')) {
-                     /*this.validateFormMy();*/
-                        return stepNavigator.next();
+                 if (!this.validateForm('#custom-checkout-form .required')) {
+                      /*this.validateFormMy();*/
+                        //return stepNavigator.next();
                 }
 
+                //stepNavigator.next();
 
-
-                /*if (validateForm()){
-                    stepNavigator.next();
-                } else {
-                    alert('warning');
-                }*/
 
             }
         });
-        /*return ComponentForm.extend({
-            initialize: function () {
-                this._super();
-                // component initialization logic
-                return this;
-            },
 
-            /!**
-             * Form submit handler
-             *
-             * This method can have any name.
-             *!/
-            onSubmit: function() {
-                // trigger form validation
-                this.source.set('params.invalid', false);
-                this.source.trigger('customCheckoutForm.data.validate');
-
-                // verify that form data is valid
-                if (!this.source.get('params.invalid')) {
-                    // data is retrieved from data provider by value of the customScope property
-                    var formData = this.source.get('customCheckoutForm');
-                    // do something with form data
-                    console.dir(formData);
-                }
-            }
-        });*/
     }
 );

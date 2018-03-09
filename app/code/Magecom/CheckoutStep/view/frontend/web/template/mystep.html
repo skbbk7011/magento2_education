@@ -8,21 +8,35 @@
             data-bind=" attr: {'data-hasrequired': $t('* Required Fields')},
                                 validationKey: false,
                                 submit: navigateToNextStep"
-            novalidate="novalidate">
+            data-hasrequired="* Required Fields"> <!--novalidate="novalidate"-->
             <fieldset class="fieldset">
                 <legend data-bind="i18n: 'Custom Checkout Form'"></legend>
                 <!-- ko foreach: getRegion('custom-checkout-form-fields') -->
                 <!-- ko template: getTemplate() --><!-- /ko -->
                 <!--/ko-->
                 <!--my example html for js-->
-                <label data-bind="i18n: 'Name'"></label>
-                <input class="input-text required name" aria-required="true" type="text" data-bind="value:customerFirstName" data-validate="{'required-entry':true}" />
-                <label data-bind="i18n: 'Phone'"></label>
-                <input class="input-text required validate-emails" aria-required="true" type="text" data-bind="value:customerPhone" data-validate="{'required-entry':true}" />
-                <label data-bind="i18n: 'Age'"></label>
-                <select class="age-validation" data-bind="value:customerYear, options: customerDataYear, optionsCaption: 'Choose one...'" data-validate="{'required-entry':true}">
-                    <option data-bind="$data"></option>
-                </select>
+                <div class="field _required"
+                    name="ageStep.name"><!--data-bind="visible: visible, attr: {'name': element.dataScope}, css: additionalClasses"-->
+                    <label data-bind="i18n: 'Name'"></label>
+                    <input class="input-text required name"  type="text" data-valid="name" value=""
+                        data-bind="value:customerFirstName"  /> <!-- aria-required="true" data-validate="{'required-entry':true}"-->
+                </div>
+                <div class="field _required"
+                    name="ageStep.phone">
+                    <label data-bind="i18n: 'Phone'"></label>
+                    <input class="input-text required phone" aria-required="true" type="text" value="" data-valid="phone"
+                        data-bind="value:customerPhone"
+                        data-validate="{'required-entry':true, 'validate-custom-name':true}" />
+                </div>
+                <div class="field _required"
+                    name="ageStep.age">
+                    <label data-bind="i18n: 'Age'"></label>
+                    <select class="age-validation required age"
+                        data-bind="value:customerYear, options: customerDataYear, optionsCaption: 'Choose one...'"
+                        data-validate="{'required-entry':true}" data-valid="age">
+                        <option data-bind="$data"></option>
+                    </select>
+                </div>
             </fieldset>
             <legend data-bind="i18n: 'values form'"></legend>
             <p data-bind="text:values"></p>
@@ -36,3 +50,18 @@
         </form>
     </div>
 </li>
+<script type="text/javascript">
+    require([
+        'jquery', // jquery Library
+        'jquery/ui', // Jquery UI Library
+        'jquery/validate', // Jquery Validation Library
+        'mage/translate' // Magento text translate (Validation message translte as per language)
+    ], function ($) {
+
+        $.validator.addMethod(
+            'validate-custom-name', function (value) {
+                return (value !== 'test'); // Validation logic here
+            }, $.mage.__('Enter Valid name'));
+
+    });
+</script>
