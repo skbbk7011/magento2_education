@@ -134,8 +134,7 @@ define(
                             };
                             var errorMessage = '< 18 years';
 
-
-                            if(ageUser < 18){
+                            if(ageUser() < 18){
                                 $(formElem).after('<span class="error">' + errorMessage + '</span>');
                             }else{
                                 $(formElem).next().remove();
