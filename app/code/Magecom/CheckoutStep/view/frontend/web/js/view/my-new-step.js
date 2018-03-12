@@ -52,6 +52,7 @@ define(
                     }
                 };
 
+
                 stepNavigator.registerStep(
                     'step_age',
                     null,
@@ -82,7 +83,7 @@ define(
                         case 'name':
                             var valInput = $(formElem).val();
                             var errorMessage = 'Invalid name';
-                            if (valInput.match(/^[A-Z\s-.]+$/)) {
+                            if (valInput.match(/^[A-Z\s\-\.]+$/)) {
                                 if ($(formElem).parent().parent().hasClass('_error')) {
                                     $(formElem).parent().next().remove();
                                     $(formElem).parent().parent().removeClass('_error');
@@ -97,7 +98,7 @@ define(
                         case 'phone':
                             var valInput = $(formElem).val();
                             var errorMessage = 'Invalid phone number';
-                            if (valInput.match(/^((8|\+38|\+7|\+3)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/)) {
+                            if (valInput.match(/^\([0-9]{3}\)\s[0-9]{3}\-[0-9]{3}$/)) { /*/^((8|\+38|\+7|\+3)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/*/
                                 if ($(formElem).parent().parent().hasClass('_error')) {
                                     $(formElem).parent().next().remove();
                                     $(formElem).parent().parent().removeClass('_error');
@@ -127,7 +128,7 @@ define(
                                     $(formElem).parent().parent().addClass('_error');
                                 }
                             } else {
-                                if ($(formElem).parent().hasClass('_error')) {
+                                if ($(formElem).parent().parent().hasClass('_error')) {
                                     $(formElem).parent().next().remove();
                                     $(formElem).parent().parent().removeClass('_error');
                                 }

@@ -7,6 +7,11 @@ var config = {
             'Magento_Checkout/js/view/payment': {
                 'Magecom_CheckoutStep/js/view/shipping-payment-mixin': true
             }
+        },
+        'map': {
+            '*': {
+                inputMask: 'Magecom_CheckoutStep/js/inputMask'
+            }
         }
     }
 }
