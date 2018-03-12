@@ -9,37 +9,50 @@
                                 validationKey: false,
                                 submit: navigateToNextStep"
             data-hasrequired="* Required Fields"> <!--novalidate="novalidate"-->
-            <fieldset class="fieldset">
-                <legend data-bind="i18n: 'Custom Checkout Form'"></legend>
+            <div class="fieldset">
                 <!-- ko foreach: getRegion('custom-checkout-form-fields') -->
                 <!-- ko template: getTemplate() --><!-- /ko -->
                 <!--/ko-->
                 <!--my example html for js-->
                 <div class="field _required"
-                    name="ageStep.name"><!--data-bind="visible: visible, attr: {'name': element.dataScope}, css: additionalClasses"-->
-                    <label data-bind="i18n: 'Name'"></label>
-                    <input class="input-text required name"  type="text" data-valid="name" value=""
-                        data-bind="value:customerFirstName"  /> <!-- aria-required="true" data-validate="{'required-entry':true}"-->
+                    name="ageStep.name">
+                    <!--data-bind="visible: visible, attr: {'name': element.dataScope}, css: additionalClasses"-->
+                    <label class="label" data-bind="i18n: 'Name'"></label>
+                    <div class="control">
+                        <input class="input-text required name" type="text" data-valid="name" value=""
+                            data-bind="value:customerFirstName" />
+                        <!-- aria-required="true" data-validate="{'required-entry':true}"-->
+                    </div>
                 </div>
                 <div class="field _required"
                     name="ageStep.phone">
-                    <label data-bind="i18n: 'Phone'"></label>
-                    <input class="input-text required phone" aria-required="true" type="text" value="" data-valid="phone"
-                        data-bind="value:customerPhone"
-                        data-validate="{'required-entry':true, 'validate-custom-name':true}" />
+                    <label class="label" data-bind="i18n: 'Phone'"></label>
+                    <div class="control">
+                        <input class="input-text required phone" aria-required="true" type="text" value=""
+                            data-valid="phone"
+                            data-bind="value:customerPhone"
+                            data-validate="{'required-entry':true, 'validate-custom-name':true}" />
+                    </div>
                 </div>
                 <div class="field _required"
                     name="ageStep.age">
-                    <label data-bind="i18n: 'Age'"></label>
-                    <select class="age-validation required age"
-                        data-bind="value:customerYear, options: customerDataYear, optionsCaption: 'Choose one...'"
-                        data-validate="{'required-entry':true}" data-valid="age">
-                        <option data-bind="$data"></option>
-                    </select>
+                    <label class="label" data-bind="i18n: 'Age'"></label>
+                    <div class="control">
+                        <select class="age-validation required age"
+                            data-bind="value:customerYear, options: customerDataYear, optionsCaption: 'Choose one...'"
+                            data-validate="{'required-entry':true}" data-valid="age">
+                            <!--<option data-bind="$data"></option>-->
+                            <script>
+                                var myDate = new Date();
+                                var year = myDate.getFullYear();
+                                for (var i = 1960; i < year + 1; i++) {
+                                    document.write('<option value="' + i + '">' + i + '</option>');
+                                }
+                            </script>
+                        </select>
+                    </div>
                 </div>
-            </fieldset>
-            <legend data-bind="i18n: 'values form'"></legend>
-            <p data-bind="text:values"></p>
+            </div>
             <div class="actions-toolbar">
                 <div class="primary">
                     <button type="submit" data-role="opc-continue" class="button action continue primary">

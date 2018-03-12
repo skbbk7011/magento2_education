@@ -13,15 +13,13 @@ define(
         'mage/validation',
         'mage/translate' // Magento text translate (Validation message translte as per language)
     ],
-    function (
-        ko,
-        $,
-        Component,
-        _,
-        stepNavigator,
-        quote,
-        mageValidation
-    ) {
+    function (ko,
+              $,
+              Component,
+              _,
+              stepNavigator,
+              quote,
+              mageValidation) {
         'use strict';
         return Component.extend({
             defaults: {
@@ -40,16 +38,16 @@ define(
 
                 this.customerFirstName = ko.observable();
                 this.customerPhone = ko.observable();
-                this.customerDataYear = ["1999","2000","2001"];
+                this.customerDataYear = ["1999", "2000", "2001"];
                 this.customerYear = ko.observable();
                 this.validationKey = ko.observableArray();
-                this.values = ko.computed(function(){
-                    return this.customerFirstName() + " " + this.customerPhone();
-                }, this);
+                /* this.values = ko.computed(function(){
+                 return this.customerFirstName() + " " + this.customerPhone();
+                 }, this);*/
 
                 var self = this;
                 this.validationKey = function () {
-                    if(self.customerFirstName() != "" && self.customerPhone() != ""){
+                    if (self.customerFirstName() != "" && self.customerPhone() != "") {
                         return true;
                     }
                 };
@@ -70,55 +68,45 @@ define(
 
             },
 
-
-            /*validateFormMy: function () {
-                var VAL = this.customerFirstName();
-
-                    VAL.match(/^[A-Z\s-.]+$/) ? (
-                        console.log(this.customerFirstName() + ' validate')
-                    ) : (
-                        console.log(this.customerFirstName() + ' no')
-                    );
-
-
-                    console.log(VAL);
-
-                    return console.log(VAL);
-            },*/
-
-
-
             /* Validation Form*/
             validateForm: function (formElem) {
-                /*$(form).validation() && $(form).validation('isValid');
-               return ;*/
                 _.filter(
                     $(formElem),
-                    function(formElem){
+                    function (formElem) {
                         var dataValid = formElem.getAttribute('data-valid');
                         valid(dataValid, formElem);
+                        });
 
-                       // return $(formElem);
-                    });
-
-                function valid (dataValid, formElem){
+                function valid(dataValid, formElem) {
                     switch (dataValid) {
                         case 'name':
                             var valInput = $(formElem).val();
                             var errorMessage = 'Invalid name';
-                            if (!(valInput.replace(/^[A-Z\s-.]+$/))){
-                                $(formElem).after('<span class="error">' + errorMessage + '</span>');
+                            if (valInput.match(/^[A-Z\s-.]+$/)) {
+                                if ($(formElem).parent().parent().hasClass('_error')) {
+                                    $(formElem).parent().next().remove();
+                                    $(formElem).parent().parent().removeClass('_error');
+                                }
                             } else {
-                                $(formElem).next().remove();
+                                if (!($(formElem).parent().parent().hasClass('_error'))) {
+                                    $(formElem).parent().parent().addClass('_error');
+                                    $(formElem).parent().after('<span class="_error field-error">' + errorMessage + '</span>');
+                                }
                             }
                             break;
                         case 'phone':
                             var valInput = $(formElem).val();
                             var errorMessage = 'Invalid phone number';
-                            if (!(valInput.replace(/^((8|\+7|\+3)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/))){
-                                $(formElem).after('<span class="error">' + errorMessage + '</span>');
+                            if (valInput.match(/^((8|\+38|\+7|\+3)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/)) {
+                                if ($(formElem).parent().parent().hasClass('_error')) {
+                                    $(formElem).parent().next().remove();
+                                    $(formElem).parent().parent().removeClass('_error');
+                                }
                             } else {
-                                $(formElem).next().remove();
+                                if (!($(formElem).parent().parent().hasClass('_error'))) {
+                                    $(formElem).parent().parent().addClass('_error');
+                                    $(formElem).parent().after('<span class="_error field-error">' + errorMessage + '</span>');
+                                }
                             }
                             break;
                         case 'age':
@@ -126,42 +114,42 @@ define(
                             var year = myDate.getFullYear();
                             var selectVal = $(formElem).val();
                             var ageUser = function () {
-                                if(selectVal == ""){
+                                if (selectVal == "") {
                                     return 0;
                                 } else {
-                                    return year-selectVal;
+                                    return year - selectVal;
                                 }
                             };
                             var errorMessage = '< 18 years';
-
-                            if(ageUser() < 18){
-                                $(formElem).after('<span class="error">' + errorMessage + '</span>');
-                            }else{
-                                $(formElem).next().remove();
+                            if (ageUser() < 18) {
+                                if (!($(formElem).parent().parent().hasClass('_error'))) {
+                                    $(formElem).parent().after('<span class="_error field-error">' + errorMessage + '</span>');
+                                    $(formElem).parent().parent().addClass('_error');
+                                }
+                            } else {
+                                if ($(formElem).parent().hasClass('_error')) {
+                                    $(formElem).parent().next().remove();
+                                    $(formElem).parent().parent().removeClass('_error');
+                                }
                             }
                             break;
                         default:
-                            console.log( 'hasnt regular rule' );
+                            console.log('hasnt regular rule');
                     }
                 }
+            },
 
+            nextStepValid: function(formElem) {
+                if(!($(formElem).hasClass('_error'))){
+                    stepNavigator.next();
+                }
             },
 
 
             navigateToNextStep: function () {
-                // trigger form validation
-                /*debugger*/
-
-                 if (!this.validateForm('#custom-checkout-form .required')) {
-                      /*this.validateFormMy();*/
-                        //return stepNavigator.next();
-                }
-
-                //stepNavigator.next();
-
-
+                this.validateForm('#custom-checkout-form .required');
+                this.nextStepValid('#custom-checkout-form ._required');
             }
         });
-
     }
 );
