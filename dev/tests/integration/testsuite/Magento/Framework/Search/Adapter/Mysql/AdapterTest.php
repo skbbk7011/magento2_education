@@ -363,7 +363,7 @@ class AdapterTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * Sample-module Advanced search request test
+     * Sample Advanced search request test
      *
      * @magentoConfigFixture current_store catalog/search/engine mysql
      * @dataProvider advancedSearchDataProvider

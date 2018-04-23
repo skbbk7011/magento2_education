@@ -28,7 +28,7 @@ class CustomerRepositoryTest extends WebapiAbstract
     const RESOURCE_PATH_CUSTOMER_TOKEN = "/V1/integration/customer/token";
 
     /**
-     * Sample-module values for testing
+     * Sample values for testing
      */
     const ATTRIBUTE_CODE = 'attribute_code';
     const ATTRIBUTE_VALUE = 'attribute_value';

@@ -22,7 +22,7 @@ $model->setData(
     [
         'instance_type' => 'Magento\\Widget\\NewSampleWidget',
         'theme_id' => $theme->getId(),
-        'title' => 'New Sample-module widget title',
+        'title' => 'New Sample widget title',
         'store_ids' => [
             0 => '0',
         ],

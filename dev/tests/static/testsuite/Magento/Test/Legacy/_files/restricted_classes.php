@@ -150,7 +150,7 @@ return [
         'exclude' => [
             [
                 'type' => 'module',
-                'name' => 'theme-frontend-Education_theme',
+                'name' => 'Magento_Theme',
                 'path' => 'Model/Indexer/Design/Config.php'
             ],
             [

@@ -45,7 +45,7 @@ class FilterTest extends \PHPUnit\Framework\TestCase
     public function testViewDirective()
     {
         $url = $this->model->viewDirective(
-            ['{{view url="theme-frontend-Education_theme::favicon.ico"}}', 'view', ' url="theme-frontend-Education_theme::favicon.ico"']
+            ['{{view url="Magento_Theme::favicon.ico"}}', 'view', ' url="Magento_Theme::favicon.ico"']
         );
         $this->assertStringEndsWith('favicon.ico', $url);
     }
@@ -59,9 +59,9 @@ class FilterTest extends \PHPUnit\Framework\TestCase
     {
         $class = Footer::class;
         $data = [
-            "{{block class='$class' name='test.block' template='theme-frontend-Education_theme::html/footer.phtml'}}",
+            "{{block class='$class' name='test.block' template='Magento_Theme::html/footer.phtml'}}",
             'block',
-            " class='$class' name='test.block' template='theme-frontend-Education_theme::html/footer.phtml'",
+            " class='$class' name='test.block' template='Magento_Theme::html/footer.phtml'",
         ];
         $html = $this->model->blockDirective($data);
         $this->assertContains('<div class="footer-container">', $html);

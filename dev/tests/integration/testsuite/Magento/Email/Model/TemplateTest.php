@@ -121,14 +121,14 @@ class TemplateTest extends \PHPUnit\Framework\TestCase
             ->getArea(Area::AREA_FRONTEND)
             ->load();
 
-        $expectedViewUrl = '/frontend/Magento/blank/en_US/theme-frontend-Education_theme/favicon.ico';
+        $expectedViewUrl = '/frontend/Magento/blank/en_US/Magento_Theme/favicon.ico';
         $this->model->setDesignConfig([
             'area' => 'frontend',
             'store' => $this->objectManager->get(\Magento\Store\Model\StoreManagerInterface::class)
                 ->getStore('fixturestore')
                 ->getId(),
         ]);
-        $this->model->setTemplateText('{{view url="theme-frontend-Education_theme::favicon.ico"}}');
+        $this->model->setTemplateText('{{view url="Magento_Theme::favicon.ico"}}');
 
         $this->setNotDefaultThemeForFixtureStore();
         $this->assertStringEndsNotWith($expectedViewUrl, $this->model->getProcessedTemplate());
@@ -577,7 +577,7 @@ class TemplateTest extends \PHPUnit\Framework\TestCase
             ->getArea(Area::AREA_FRONTEND)
             ->load();
 
-        $this->model->setTemplateSubject('{{view url="theme-frontend-Education_theme::favicon.ico"}}');
+        $this->model->setTemplateSubject('{{view url="Magento_Theme::favicon.ico"}}');
         $this->model->setDesignConfig([
             'area' => 'frontend',
             'store' => $this->objectManager->get(\Magento\Store\Model\StoreManagerInterface::class)
@@ -587,13 +587,13 @@ class TemplateTest extends \PHPUnit\Framework\TestCase
 
         $this->setNotDefaultThemeForFixtureStore();
         $this->assertStringMatchesFormat(
-            '%s/frontend/Magento/luma/en_US/theme-frontend-Education_theme/favicon.ico',
+            '%s/frontend/Magento/luma/en_US/Magento_Theme/favicon.ico',
             $this->model->getProcessedTemplateSubject([])
         );
 
         $this->setDefaultThemeForFixtureStore();
         $this->assertStringMatchesFormat(
-            '%s/frontend/Magento/blank/en_US/theme-frontend-Education_theme/favicon.ico',
+            '%s/frontend/Magento/blank/en_US/Magento_Theme/favicon.ico',
             $this->model->getProcessedTemplateSubject([])
         );
     }

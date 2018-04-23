@@ -145,7 +145,7 @@ class RulePoolTest extends \PHPUnit\Framework\TestCase
         $componentRegistrar = $objectManager->get(
             \Magento\Framework\Component\ComponentRegistrarInterface::class
         );
-        $coreModulePath = $componentRegistrar->getPath(ComponentRegistrar::MODULE, 'theme-frontend-Education_theme');
+        $coreModulePath = $componentRegistrar->getPath(ComponentRegistrar::MODULE, 'Magento_Theme');
         /** @var \Magento\Framework\Filesystem $filesystem */
         $filesystem = $objectManager->get(\Magento\Framework\Filesystem::class);
         $libPath = rtrim($filesystem->getDirectoryRead(DirectoryList::LIB_WEB)->getAbsolutePath(), '/');
@@ -205,10 +205,10 @@ class RulePoolTest extends \PHPUnit\Framework\TestCase
             ],
             'template, non-modular-magento-core' => [
                 \Magento\Framework\View\Design\Fallback\RulePool::TYPE_TEMPLATE_FILE,
-                ['module_name' => 'theme-frontend-Education_theme'],
+                ['module_name' => 'Magento_Theme'],
                 [
-                    $themeOnePath . '/theme-frontend-Education_theme/templates',
-                    $themeTwoPath . '/theme-frontend-Education_theme/templates',
+                    $themeOnePath . '/Magento_Theme/templates',
+                    $themeTwoPath . '/Magento_Theme/templates',
                     $coreModulePath . '/view/area/templates',
                     $coreModulePath . '/view/base/templates',
                 ],

@@ -16,7 +16,7 @@ $objectManager = Bootstrap::getObjectManager();
 $store = $objectManager->get(StoreManagerInterface::class)->getStore();
 /** @var MutableScopeConfigInterface $mutableConfig */
 $mutableConfig = $objectManager->get(MutableScopeConfigInterface::class);
-$mutableConfig->setValue(Information::XML_PATH_STORE_INFO_NAME, 'Sample-module Store', ScopeInterface::SCOPE_STORE);
+$mutableConfig->setValue(Information::XML_PATH_STORE_INFO_NAME, 'Sample Store', ScopeInterface::SCOPE_STORE);
 $mutableConfig->setValue(Store::XML_PATH_UNSECURE_BASE_LINK_URL, 'http://m2.com/', ScopeInterface::SCOPE_STORE);
 $mutableConfig->setValue(Shipment::XML_PATH_STORE_ADDRESS1, '6161 West Centinela Avenue', ScopeInterface::SCOPE_STORE);
 $mutableConfig->setValue(Shipment::XML_PATH_STORE_ADDRESS2, 'app. 111', ScopeInterface::SCOPE_STORE);

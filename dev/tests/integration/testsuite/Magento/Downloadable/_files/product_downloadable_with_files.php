@@ -18,7 +18,7 @@ $downloadableData = [
         [
             'is_delete' => 0,
             'sample_id' => 0,
-            'title' => 'Downloadable Product Sample-module Title',
+            'title' => 'Downloadable Product Sample Title',
             'type' => \Magento\Downloadable\Helper\Download::LINK_TYPE_FILE,
             'file' => json_encode(
                 [

@@ -7,7 +7,7 @@
 namespace Magento\TestModule4\Model\ResourceModel;
 
 /**
- * Sample-module resource model
+ * Sample resource model
  */
 class Item extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
 {

@@ -28,7 +28,7 @@
                     name="ageStep.phone">
                     <label class="label" data-bind="i18n: 'Phone'"></label>
                     <div class="control">
-                        <input id="phone" class="input-text required phone" aria-required="true" type="text" value=""
+                        <input placeholder="(XXX) XXX-XXX" id="phone" class="input-text required phone" aria-required="true" type="text" value=""
                             data-valid="phone"
                             data-bind="value:customerPhone"
                             data-validate="{'required-entry':true, 'validate-custom-name':true}" />
@@ -63,9 +63,3 @@
         </form>
     </div>
 </li>
-
-<script type="text/javascript">
-    require(['inputMask'],function(){
-            jQuery('#phone').mask('(999) 999-999');
-    });
-</script>

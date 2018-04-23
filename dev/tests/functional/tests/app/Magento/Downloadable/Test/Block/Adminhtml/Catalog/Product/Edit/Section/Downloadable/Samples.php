@@ -9,7 +9,7 @@ use Magento\Mtf\Block\Form;
 use Magento\Mtf\Client\Element\SimpleElement;
 
 /**
- * Sample-module Form of downloadable product.
+ * Sample Form of downloadable product.
  */
 class Samples extends Form
 {

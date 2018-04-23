@@ -19,7 +19,8 @@ define(
               _,
               stepNavigator,
               quote,
-              mageValidation) {
+              mageValidation
+    ) {
         'use strict';
         return Component.extend({
             defaults: {

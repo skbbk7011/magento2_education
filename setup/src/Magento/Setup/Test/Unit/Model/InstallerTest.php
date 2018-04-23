@@ -137,7 +137,7 @@ class InstallerTest extends \PHPUnit\Framework\TestCase
     private $phpReadinessCheck;
 
     /**
-     * Sample-module DB configuration segment
+     * Sample DB configuration segment
      *
      * @var array
      */
@@ -555,7 +555,7 @@ class InstallerTest extends \PHPUnit\Framework\TestCase
         $this->logger->expects($this->at(48))->method('log')->with('Write installation date...');
         $this->logger->expects($this->at(50))->method('logSuccess')->with('Magento installation complete.');
         $this->logger->expects($this->at(52))->method('log')
-            ->with('Sample-module Data is installed with errors. See log file for details');
+            ->with('Sample Data is installed with errors. See log file for details');
     }
 }
 

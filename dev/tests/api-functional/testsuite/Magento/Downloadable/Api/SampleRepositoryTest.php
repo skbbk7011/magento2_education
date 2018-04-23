@@ -186,7 +186,7 @@ class SampleRepositoryTest extends WebapiAbstract
             'isGlobalScopeContent' => false,
             'sku' => 'downloadable-product',
             'sample' => [
-                'title' => 'Sample-module with URL resource',
+                'title' => 'Sample with URL resource',
                 'sort_order' => 1,
                 'sample_url' => 'http://www.sample.example.com/',
                 'sample_type' => 'url',
@@ -213,7 +213,7 @@ class SampleRepositoryTest extends WebapiAbstract
             'isGlobalScopeContent' => false,
             'sku' => 'downloadable-product',
             'sample' => [
-                'title' => 'Sample-module with URL resource',
+                'title' => 'Sample with URL resource',
                 'sort_order' => 1,
                 'sample_type' => 'invalid',
             ],
@@ -233,7 +233,7 @@ class SampleRepositoryTest extends WebapiAbstract
             'isGlobalScopeContent' => false,
             'sku' => 'downloadable-product',
             'sample' => [
-                'title' => 'Sample-module Title',
+                'title' => 'Sample Title',
                 'sort_order' => 1,
                 'sample_type' => 'file',
                 'sample_file_content' => [
@@ -273,7 +273,7 @@ class SampleRepositoryTest extends WebapiAbstract
     /**
      * @magentoApiDataFixture Magento/Downloadable/_files/product_downloadable.php
      * @expectedException \Exception
-     * @expectedExceptionMessage Sample-module URL must have valid format.
+     * @expectedExceptionMessage Sample URL must have valid format.
      */
     public function testCreateThrowsExceptionIfSampleUrlHasWrongFormat()
     {
@@ -281,7 +281,7 @@ class SampleRepositoryTest extends WebapiAbstract
             'isGlobalScopeContent' => false,
             'sku' => 'downloadable-product',
             'sample' => [
-                'title' => 'Sample-module Title',
+                'title' => 'Sample Title',
                 'sort_order' => 1,
                 'sample_type' => 'url',
                 'sample_url' => 'http://example<.>com/',
@@ -303,7 +303,7 @@ class SampleRepositoryTest extends WebapiAbstract
             'isGlobalScopeContent' => false,
             'sku' => 'downloadable-product',
             'sample' => [
-                'title' => 'Sample-module Title',
+                'title' => 'Sample Title',
                 'sort_order' => $sortOrder,
                 'sample_type' => 'url',
                 'sample_url' => 'http://example.com/',
@@ -334,7 +334,7 @@ class SampleRepositoryTest extends WebapiAbstract
             'isGlobalScopeContent' => false,
             'sku' => 'simple',
             'sample' => [
-                'title' => 'Sample-module Title',
+                'title' => 'Sample Title',
                 'sort_order' => 50,
                 'sample_type' => 'url',
                 'sample_url' => 'http://example.com/',
@@ -480,7 +480,7 @@ class SampleRepositoryTest extends WebapiAbstract
             'sku' => 'downloadable-product',
             'sample' => [
                 'id' => $sampleId,
-                'title' => 'Updated Sample-module Title',
+                'title' => 'Updated Sample Title',
                 'sort_order' => $sortOrder,
                 'sample_type' => 'url',
             ],
@@ -556,7 +556,7 @@ class SampleRepositoryTest extends WebapiAbstract
     {
         $sampleExpectation = [
             'fields' => [
-                'title' => 'Downloadable Product Sample-module Title',
+                'title' => 'Downloadable Product Sample Title',
                 'sort_order' => 0,
                 'sample_type' => 'file'
             ]
